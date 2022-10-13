@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MEDIA_PATH = os.path.join(BASE_DIR, 'media')
+MEDIA_PATH = os.path.join(BASE_DIR, "media")
 
 CSV_PATH = os.path.join(BASE_DIR, "media", "test_task.csv")
 XML_PATH = os.path.join(BASE_DIR, "media", "test_task.xml")
