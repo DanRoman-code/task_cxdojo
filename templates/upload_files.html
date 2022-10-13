@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+    <form action="{% url 'includes:upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        {% if messages %}
+            <div class="alert alert-warning">
+                <div class="container text-center">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {#        {{ form.errors }}#}
+        {#        {{ form.upload_xml_file|crispy }}#}
+
+
+        <input type="submit" value="Upload" class="btn btn-primary">
+    </form>
+{% endblock %}

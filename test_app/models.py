@@ -1,10 +1,9 @@
-# from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
 class User(AbstractUser):
-    avatar = models.URLField(default=None, blank=True, max_length=200)
+    avatar = models.URLField(default=None, null=True, blank=True, max_length=200)
 
     class Meta:
         ordering = ["date_joined"]
@@ -17,3 +16,8 @@ class User(AbstractUser):
             self.date_joined,
             self.avatar,
         }
+
+
+class Document(models.Model):
+    csv_file = models.FileField(upload_to="")
+    xml_file = models.FileField(upload_to="")
